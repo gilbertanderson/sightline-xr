@@ -6,7 +6,15 @@ import { Panel, BroadcastBar, CheckoutDialog, HoverTip } from './ui/Panel';
 import { useStore } from './store';
 import { VENUE } from './data/venue';
 
-const xrStore = createXRStore({ frameRate: 'high', offerSession: false, emulate: import.meta.env.DEV ? { type: 'metaQuest3', syntheticEnvironment: false } : false });
+// Controller and hand models are served from this site (see scripts/copy-xr-profiles.mjs), not a CDN.
+const baseAssetPath = new URL(`${import.meta.env.BASE_URL}xr-profiles/`, location.href).href;
+
+const xrStore = createXRStore({
+  frameRate: 'high',
+  offerSession: false,
+  baseAssetPath,
+  emulate: import.meta.env.DEV ? { type: 'metaQuest3', syntheticEnvironment: false } : false,
+});
 
 type Support = 'checking' | 'vr' | 'none' | 'no-webxr';
 

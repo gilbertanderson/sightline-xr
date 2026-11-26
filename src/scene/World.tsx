@@ -25,7 +25,7 @@ function seatScreenPose(index: number, side: 1 | -1) {
 
 /** In VR the panel is on the left, so the screen goes right; on desktop the booking panel covers the right, so it goes left. */
 function SeatScreen({ side = 1 }: { side?: 1 | -1 }) {
-  const viewSeat = useStore((s) => s.viewSeat);
+  const viewSeat = useStore((s) => (s.view === 'seat' ? s.viewSeat : null));
   const pose = useMemo(() => (viewSeat == null ? null : seatScreenPose(viewSeat, side)), [viewSeat, side]);
   if (!pose) return null;
   return <Screen w={1.6} h={0.9} position={pose.pos} rotation-y={pose.yaw} />;

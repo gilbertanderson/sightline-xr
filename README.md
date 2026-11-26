@@ -6,6 +6,8 @@
 
 ![Sightline XR: a 3D concert hall with seats colored by price, and the booking panel](https://gilbertanderson.com/sightline-xr/screenshot.jpg)
 
+![Walkthrough: best available, stepping into the seat, switching broadcast feeds, holding the seats, demo checkout and ticket](docs/walkthrough.gif)
+
 Pick a seat in a 3D concert hall, step into it to see your exact view, and watch a live broadcast from the stage while you decide. Everything is fictional: the venue (Larkspur Hall), the three shows, and the checkout, which takes no payment and issues a ticket marked as a demo.
 
 ## What it does
@@ -27,7 +29,7 @@ Pick a seat in a 3D concert hall, step into it to see your exact view, and watch
 | Phone | The same with touch; the booking panel becomes a bottom sheet. |
 | PC VR | Point and pull the trigger. In the lounge, drag the model or use the right thumbstick to turn it; the panel on your left runs the booking. |
 
-PC VR runs in Chrome or Edge on Windows through the active OpenXR runtime (SteamVR, Quest Link or Air Link, Virtual Desktop). Controller and hand models load from the WebXR input profiles CDN.
+PC VR runs in Chrome or Edge on Windows through the active OpenXR runtime (SteamVR, Quest Link or Air Link, Virtual Desktop). Controller and hand models are hosted with the app: at build time, `scripts/copy-xr-profiles.mjs` copies the official WebXR input profiles for Valve Index, HTC Vive, Windows Mixed Reality, Oculus and Meta Quest Touch, Pico 4 and generic hands from npm, so nothing loads from a CDN.
 
 ## Run it
 
